@@ -10,6 +10,17 @@ stages
         steps { git branch: 'master', url: 'https://github.com/deepakraut247/Ant-WebProject' }
     }
 
+    stage('Run Sonar')
+    {
+    steps{
+        script{
+            withSonarQubeEnv('sonar-api'){
+                sh "${SONARQUBE_SCANNER_HOME}/bin/sonar-scanner"
+            }
+        }
+    }
+}
+
     stage ('ant-prepare-target')
     {
         steps { withAnt(installation: 'ANT_HOME') 
