@@ -7,7 +7,7 @@ stages
 { 
     stage ('scm checkout')
     {
-        steps { git branch: 'master', url: 'https://github.com/prakashk0301/Ant-WebProject/' }
+        steps { git branch: 'master', url: 'https://github.com/deepakraut247/Ant-WebProject' }
     }
 
     stage ('ant-prepare-target')
