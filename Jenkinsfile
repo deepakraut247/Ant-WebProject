@@ -12,7 +12,7 @@ stages
 
     stage ('ant-prepare-target')
     {
-        steps { withAnt(installation: 'ANT_HOME', jdk: 'JAVA_HOME') 
+        steps { withAnt(installation: 'ANT_HOME') 
         {
           sh 'ant prepare'
         }     }
@@ -21,7 +21,7 @@ stages
     stage ('ant-init-target')
     {
         steps 
-         { withAnt(installation: 'ANT_HOME', jdk: 'JAVA_HOME') 
+         { withAnt(installation: 'ANT_HOME') 
            {
                sh 'ant init'
            }  }
