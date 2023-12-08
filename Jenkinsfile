@@ -18,7 +18,7 @@ stages
     steps{
         script{
             withSonarQubeEnv('sonar-api'){
-                sh "${SONARQUBE_SCANNER_HOME}/bin/sonar-scanner"
+                sh "${SONARQUBE_SCANNER_HOME}/bin/sonar-scanner -X"
             }
         }
     }
