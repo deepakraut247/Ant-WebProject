@@ -40,8 +40,41 @@ stages
                sh 'ant init'
            }  }
     }
+    
+stage('Package') {
+            steps {
+                rtServer (
+                    id: "artifactory",
+                    url: "http://15.207.98.104:8082/artifactory",
+                    username: 'admin',
+                    password: 'Admin@123',
+                    bypassProxy: true,
+                    timeout: 300
+                )
+            }
+        }
+        stage('Upload') {
+            steps {
+                rtUpload (
+                    serverId: "artifactory",
+                    spec: '''{
+                        "files": [
+                            {
+                                "pattern": "*.war",
+                                "target": "generic-local/"
+                            }
+                        ]
+                    }'''
+                )
+            }
+        }
+        stage('Publish Build Info') {
+            steps {
+                rtPublishBuildInfo (
+                    serverId: "artifactory"
+                )
+            }
+        }
 
 }
-
-
 }
