@@ -2,9 +2,10 @@ pipeline
 {
 
 agent any
+    /*
 environment{
 SONARQUBE_SCANNER_HOME=tool 'sonar-scanner'
-}
+}  */
 stages
 
 { 
@@ -12,7 +13,7 @@ stages
     {
         steps { git branch: 'master', url: 'https://github.com/deepakraut247/Ant-WebProject' }
     }
-
+/*
     stage('Run Sonar')
     {
     steps{
@@ -23,7 +24,7 @@ stages
         }
     }
 }
-
+*/
     stage ('ant-prepare-target')
     {
         steps { withAnt(installation: 'ANT_HOME') 
