@@ -46,9 +46,9 @@ stage('Package') {
             steps {
                 rtServer (
                     id: "artifactory",
-                    url: "http://15.207.98.104:8082/artifactory",
+                    url: "http://10.10.2.72:8082/artifactory",
                     username: 'admin',
-                    password: 'Admin@123',
+                    password: 'Amazon@123',
                     bypassProxy: true,
                     timeout: 300
                 )
@@ -62,7 +62,7 @@ stage('Package') {
                         "files": [
                             {
                                 "pattern": "*.war",
-                                "target": "generic-local/"
+                                "target": "generic_local/"
                             }
                         ]
                     }'''
