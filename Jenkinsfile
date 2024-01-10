@@ -1,7 +1,7 @@
 pipeline
 {
 
-agent any
+agent none
     /*
 environment{
 SONARQUBE_SCANNER_HOME=tool 'sonar-scanner'
